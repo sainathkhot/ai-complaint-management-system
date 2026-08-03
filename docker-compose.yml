@@ -1,0 +1,25 @@
+# Brings up Postgres only. The backend and frontend run on the host so you can
+# hot-reload both while recording the demo.
+#
+#   docker compose up -d db
+#
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: aivoa-postgres
+    environment:
+      POSTGRES_USER: aivoa
+      POSTGRES_PASSWORD: aivoa
+      POSTGRES_DB: aivoa_cms
+    ports:
+      - "5432:5432"
+    volumes:
+      - aivoa_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aivoa -d aivoa_cms"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  aivoa_pgdata:

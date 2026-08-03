@@ -1,0 +1,37 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	router(router)
+	log_complaint(log_complaint)
+	edit_complaint(edit_complaint)
+	extract_document(extract_document)
+	answer_question(answer_question)
+	assess_risk(assess_risk)
+	check_completeness(check_completeness)
+	duplicate_check(duplicate_check)
+	generate_summary(generate_summary)
+	compose_reply(compose_reply)
+	persist(persist)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> router;
+	answer_question --> compose_reply;
+	assess_risk --> check_completeness;
+	check_completeness --> duplicate_check;
+	compose_reply --> persist;
+	duplicate_check --> generate_summary;
+	edit_complaint --> assess_risk;
+	extract_document --> assess_risk;
+	generate_summary --> compose_reply;
+	log_complaint --> assess_risk;
+	persist --> __end__;
+	router -.-> log_complaint;
+	router -.-> edit_complaint;
+	router -.-> extract_document;
+	router -.-> answer_question;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
