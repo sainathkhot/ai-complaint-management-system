@@ -423,4 +423,4 @@ shape so extraction is visibly working rather than pattern-matching one template
 
 [GitHub](https://github.com/sainathkhot) · [LinkedIn](https://linkedin.com/in/sainath-khot) · sainathkhot206@gmail.com
 
-<sub>Built as a technical assignment for AIVOA.AI, August 2026. MIT licensed.</sub>
+<sub>Built as a technical assignment for AIVOA.AI, August 2026.</sub>
